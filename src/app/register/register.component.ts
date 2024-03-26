@@ -10,13 +10,10 @@ import { ToastrService } from 'ngx-toastr';
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   model: any = {};
-
-  constructor(private accountService: AccountService,
-    private toastr: ToastrService) { }
+  constructor(private accountService: AccountService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
-
   register() {
     this.accountService.register(this.model).subscribe({
       next: () => {
@@ -32,5 +29,4 @@ export class RegisterComponent implements OnInit {
   cancel() {
     this.cancelRegister.emit(false)
   }
-
 }
